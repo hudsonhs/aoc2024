@@ -1,4 +1,4 @@
-from heapq import *
+import os
 import fileinput
 from collections import Counter
 
@@ -6,7 +6,11 @@ class Day1():
     def __init__(self):
         self.l1 = []
         self.l2 = []
-        with fileinput.input(files=('input.txt')) as f:
+
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        input_path = os.path.join(script_dir, 'input.txt')
+        
+        with fileinput.input(files=(input_path)) as f:
             for line in f:
                 num1, num2 = [int(num) for num in line.split('   ')]
                 self.l1.append(num1)
